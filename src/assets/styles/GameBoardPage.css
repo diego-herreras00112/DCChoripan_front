@@ -1,0 +1,267 @@
+.tablero-container {
+  display: flex;
+  justify-content: center;  
+  align-items: center;     
+  width: 100%;              
+  min-height: 100vh;     
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.tablero {
+  display: grid;
+  grid-template-columns: repeat(10, 94.37px);
+  grid-auto-rows: 60.71px; 
+  gap: 0;
+  position: relative;
+}
+
+.casilla {
+  position: relative;
+  overflow: visible;
+  width: 94.37px;
+  height: 60.71px;
+}
+
+.casilla-imagen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.turno-box {
+  width: 261px;
+  height: 67px;
+  background: #FFF;
+  border-radius: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+.turno-text {
+  color: #1B2926;
+  font-family: "Lemon", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 575; 
+  line-height: 130%;
+}
+
+
+.turno-icon {
+  position: relative;
+  overflow: visible;
+}
+
+.casilla-1 {
+  position: relative; 
+}
+
+.casilla-peones {
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.peon {
+  position: relative; 
+  z-index: 100;   
+  transition: transform 0.5s;
+}
+
+.info-jugador-container {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 262px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  z-index: 20;
+}
+
+.info-jugador-superior {
+  width: 261px;
+  height: 50px;
+  border-radius: 0 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  font-family: Lemon;
+  font-size: 20px;
+  font-weight: 575;
+  line-height: 130%;
+}
+
+.info-jugador-inferior {
+  width: 261px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: Lemon;
+  font-size: 30px;
+  font-weight: 575;
+  line-height: 130%;
+}
+
+.inventario-item{
+  display: flex;
+  flex-direction: row;
+  gap: 10px; 
+  align-items: center;
+
+}
+.icono-rol {
+  width: 50px;
+  height: 50px;
+}
+
+.info-jugador-container-top {
+  position: absolute;
+  right: 10px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  z-index: 50;
+}
+
+.info-jugador-top-1 {
+  top: 10px;
+}
+
+.info-jugador-top-2 {
+  top: 150px; 
+}
+
+.info-jugador-top {
+  width: 262px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 10px;
+  border-radius: 12px 0 0 0; 
+
+  font-family: Lemon;
+  font-size: 18px;
+  font-weight: 575;
+}
+
+.info-jugador-inferior-top {
+  width: 262px;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+
+  font-family: Lemon;
+  font-size: 28px;
+  font-weight: 575;
+}
+
+.inventario-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.icono-rol-top {
+  width: 35px;
+  height: 35px;
+}
+
+.nombre-top {
+  flex: 1;
+  margin-left: 10px;
+  text-align: left;
+}
+
+.nivel-top {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.overlay-dados {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.circulo-dados {
+  width: 332px;
+  height: 332px;
+  border-radius: 50%;
+  background: #DA291C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.dado-imagen {
+  width: 90px;
+  height: 90px;
+  user-select: none;
+}
+
+.boton-lanzar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: none;    
+  border: none;        
+  padding: 0;
+  cursor: pointer;
+  z-index: 900;
+}
+
+.boton-lanzar:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.img-boton-dados {
+  width: 100px;
+  height: auto;
+}
+.boton-terminar-turno {
+  border-radius: 30px;
+  border: 2px solid #FFF;
+  background: #0032A0;
+  color: #FFF;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  bottom: 150px;   
+  right: 20px;   
+  z-index: 999;
+  transition: transform 0.2s;
+  font-family: Lemon;
+}
+
+.boton-terminar-turno:hover {
+  transform: scale(1.05);
+}
+

@@ -1,0 +1,251 @@
+/*
+  Archivo CSS NUEVO:
+  Basado en tu referencia, este CSS se usará para
+  LoginPage.jsx y RegistroPage.jsx
+*/
+
+/*
+  Wrapper para las páginas de Auth (Login, Registro)
+  que SÍ tienen fondo blanco, (sobreescribiendo el main.css).
+*/
+.auth-page-wrapper {
+  background-color: var(--background-light);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex-grow: 1; /* Asegura que ocupe toda la altura */
+}
+
+/* --- Header Section --- */
+.header-section {
+  background-color: var(--background-dark);
+  padding-top: 30px;
+  padding-bottom: 46px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  position: relative;
+  width: 138px;
+  height: 74px;
+  flex-shrink: 0;
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+}
+
+/*
+  Simplificado para usar UNA sola imagen: Chile.svg
+*/
+.logo img {
+  width: 100%;
+  height: 40px; /* Altura original del wrapper */
+  object-fit: contain;
+}
+
+.logo-subtitle {
+  display: block;
+  margin-top: 15px;
+  font-family: var(--font-lemonada);
+  font-size: 15.86px;
+  color: var(--text-accent);
+  text-align: center;
+}
+
+.header-title {
+  margin: 0;
+  font-family: var(--font-lemon);
+  font-weight: 400;
+  font-size: 60px;
+  color: var(--text-primary);
+  text-align: center;
+  flex-grow: 1;
+  white-space: nowrap;
+}
+
+.header-spacer {
+  width: 138px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .header-title {
+    font-size: 48px;
+    order: -1;
+  }
+  .header-spacer {
+    display: none;
+  }
+}
+
+/* --- Login/Form Section --- */
+.login-section {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 100px 20px 50px 20px; /* Ajuste de padding */
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.login-form-container {
+  background-color: var(--background-dark);
+  border-radius: 20px;
+  padding: 31px 42px;
+  width: 100%;
+  max-width: 600px; /* Ancho máximo del formulario */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Espaciado entre campos */
+.form-group:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.form-label {
+  font-family: var(--font-josefin);
+  font-size: 35px;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.form-input {
+  background-color: var(--background-light);
+  border-radius: 20px;
+  height: 48px;
+  border: none;
+  padding: 0 20px;
+  font-size: 18px;
+  color: #000; /* Texto negro para inputs claros */
+}
+
+.submit-button {
+  margin-top: 26px;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  font-family: var(--font-lemonada);
+  font-weight: 700;
+  font-size: 26.48px;
+  border: none;
+  border-radius: 53px;
+  width: 203px;
+  height: 51px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center; /* Centra el botón en el wrapper */
+}
+
+@media (max-width: 768px) {
+  .login-section {
+    padding-top: 60px;
+  }
+  .login-form-container {
+    width: 90vw;
+    padding: 25px;
+  }
+  .form-label {
+    font-size: 28px;
+  }
+}
+
+/* --- Footer Section --- */
+.footer-section {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.footer-link {
+  font-family: var(--font-josefin);
+  font-size: 20px;
+  color: var(--text-light);
+}
+
+.footer-link-register {
+  font-family: var(--font-roboto);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    height: auto;
+    padding: 20px 0;
+  }
+  .footer-link {
+    font-size: 16px;
+  }
+}
+
+/* 1. Hace que los inputs resalten cuando se seleccionan */
+.form-input:focus {
+  /* 'outline' es mejor que 'border' porque no mueve 
+    los otros elementos cuando aparece.
+  */
+  outline: 3px solid var(--text-accent); 
+  background-color: #fff; /* Opcional: hacerlo más brillante */
+}
+
+/* 2. Da "feedback" al botón cuando pasas el mouse o usas el teclado */
+.submit-button {
+  /* Añadimos 'transition' para que el cambio de color sea suave */
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: var(--text-accent); /* O un color de "hover" que tengas */
+  color: var(--background-dark);
+  transform: scale(1.03); /* Un sutil efecto de "crecimiento" */
+}
+
+.submit-button:active:not(:disabled) {
+  /* Cuando el usuario hace clic */
+  transform: scale(0.98);
+}
+
+/* 3. Feedback para los links del footer */
+.footer-link {
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--text-accent);
+  text-decoration: underline; /* Clásico y efectivo */
+}

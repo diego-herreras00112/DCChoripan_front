@@ -1,0 +1,217 @@
+
+/*
+  Estilos para JoinGamePage.jsx
+  (El body negro ya está en main.css)
+*/
+
+.join-game-section {
+  max-width: 1280px;
+  width: 100%;
+  min-height: 100vh; /* Ajustado para responsive */
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 42px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.join-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.logo {
+  text-decoration: none;
+  width: 137px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo img {
+  width: 100%;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo-subtitle {
+  font-family: 'Lemonada', cursive;
+  font-weight: 400;
+  font-size: 15.86px;
+  color: #da291c;
+  text-align: center;
+  margin: 2px 0 0;
+}
+
+.logout-link {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #ffdd92;
+  text-decoration: underline;
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centrado */
+  flex-grow: 1; /* Ocupa el espacio */
+  width: 100%;
+  max-width: 674px;
+}
+
+.join-game-title {
+  font-family: 'Lemonada', cursive;
+  font-weight: 700;
+  font-size: clamp(40px, 8vw, 70px); 
+  color: #0032a0; /* Texto Azul */
+  -webkit-text-stroke: 2px #ffffff; /* Borde Blanco */
+  text-align: center;
+  margin: 0;
+  margin-bottom: 100px; 
+}
+
+.join-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* --- CLASES RENOMBRADAS --- */
+.join-label { /* <-- CAMBIO */
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
+  font-size: clamp(30px, 5vw, 40px);
+  color: #ffffff;
+  margin-bottom: 26px;
+}
+
+.join-input { /* <-- CAMBIO */
+  width: 318px;
+  max-width: 80%;
+  height: 48px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: none;
+  margin-bottom: 50px;
+  padding: 0 20px;
+  font-size: 18px;
+  color: #000;
+  text-transform: uppercase; /* Esto ahora solo aplica aquí */
+}
+
+.join-button { /* <-- CAMBIO */
+  width: 192px;
+  height: 51.15px;
+  background-color: #0032a0;
+  border: 3.52px solid #ffffff;
+  border-radius: 52.79px;
+  font-family: 'Lemonada', cursive;
+  font-weight: 700;
+  font-size: 26.4px;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+}
+/* --- FIN DE CLASES RENOMBRADAS --- */
+
+.back-button {
+  background-color: #0032a0;
+  border: 1.18px solid #ffffff;
+  border-radius: 17.74px;
+  color: #ffffff;
+  font-family: 'Lemonada', cursive;
+  font-weight: 700;
+  font-size: 14px; /* Más legible */
+  padding: 8px 16px;
+  text-decoration: none;
+  margin-top: auto; /* Empuja al fondo */
+  align-self: flex-start; /* Alinea a la izquierda */
+}
+
+@media (max-width: 1280px) {
+  .join-game-section {
+    height: auto;
+    padding: 2.34vw 3.28vw;
+  }
+  .logo-container {
+    transform: scale(0.8);
+    top: 0;
+    left: 0;
+  }
+  .logout-link {
+    font-size: 1.5vw;
+    top: 2.5vw;
+    right: 3vw;
+  }
+  .main-content {
+    position: static;
+    transform: none;
+    padding-top: 10vh;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  .page-title {
+    font-size: 5vw;
+    margin-bottom: 10vh;
+  }
+  .join-label { /* <-- CAMBIO */
+    font-size: 3vw;
+    margin-bottom: 3vh;
+  }
+  .join-input { /* <-- CAMBIO */
+    width: 40vw;
+    height: 6vh;
+    margin-bottom: 4vh;
+  }
+  .join-button { /* <-- CAMBIO */
+    width: 25vw;
+    height: 7vh;
+    font-size: 2.5vw;
+    line-height: 7vh;
+  }
+  .back-button {
+    transform: scale(0.9);
+    bottom: 2vw;
+    left: 2vw;
+  }
+} /* <--- ¡LLAVE CORREGIDA! */
+
+@media (max-width: 768px) {
+  .join-game-section {
+    padding: 20px;
+  }
+  .join-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .main-content {
+    padding-top: 5vh;
+  }
+  .page-title {
+    font-size: 8vw;
+    margin-bottom: 8vh;
+  }
+  .join-label { /* <-- CAMBIO */
+    font-size: 5vw;
+  }
+  .join-input { /* <-- CAMBIO */
+    width: 60vw;
+  }
+  .join-button { /* <-- CAMBIO */
+    width: 40vw;
+    font-size: 4vw;
+  }
+  .back-button {
+    align-self: center;
+  }
+} /* <--- ¡LLAVE CORREGIDA! */

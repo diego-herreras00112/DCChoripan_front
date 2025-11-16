@@ -1,0 +1,96 @@
+/* YA NO NECESITAMOS .rules-container, .rules-header,
+  .logo, .logo-subtitle, .logout-link.
+  Esos estilos los maneja MainLayout o ya no existen.
+*/
+
+.rules-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.rules-title {
+  color: #0032a0;
+  -webkit-text-stroke: 2px #ffffff; /* ¡ARREGLADO! */
+  text-shadow: 2px #ffffff;
+  font-family: 'Lemonada', cursive;
+  font-weight: 700;
+  font-size: clamp(36px, 8vw, 70px);
+  text-align: center;
+  margin: 0;
+  margin-bottom: 42px;
+}
+
+.rules-text-wrapper {
+  width: 100%;
+  max-width: 764px;
+  height: auto;
+  max-height: 60vh;
+  overflow-y: scroll;
+  padding-right: 21px;
+}
+
+.rules-list {
+  list-style-type: decimal;
+  list-style-position: outside;
+  padding-left: 2em;
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.rules-list li {
+  padding-left: 10px;
+  margin-bottom: 30px;
+}
+
+.rules-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Scrollbar */
+.rules-text-wrapper::-webkit-scrollbar {
+  width: 14px;
+}
+.rules-text-wrapper::-webkit-scrollbar-track {
+  background: #acacac;
+  border-radius: 20px;
+}
+.rules-text-wrapper::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: auto;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  background-color: #0032a0;
+  border: 1.18px solid #ffffff;
+  border-radius: 17.74px;
+  color: #ffffff;
+  font-family: 'Lemonada', cursive;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .rules-list {
+    font-size: 16px;
+    line-height: 1.6;
+    padding-left: 1.5em;
+  }
+  .rules-list li {
+    margin-bottom: 20px;
+  }
+}

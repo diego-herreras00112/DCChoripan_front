@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.page-container {
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px 40px;
+  display: flex;
+  flex-direction: column;
+  /* QUITAMOS EL FONDO DE AQUÍ
+    porque ya está en main.css
+  */
+  /* background-color: #000000; */
+  /* color: #ffffff; */
+}
+
+.landing-header {
+  width: 100%;
+}
+
+/* ... (El resto de tu archivo HomePage.css sigue igual) ... */
+.auth-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  line-height: 23.44px;
+}
+
+.auth-nav a {
+  text-decoration: underline;
+}
+
+.landing-main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Reglas del logo SIMPLIFICADAS
+*/
+.logo-image {
+  width: 505px; /* Ancho original que tenías */
+  height: auto;
+  margin-bottom: 20px; /* Espacio antes del tagline */
+}
+
+
+.logo-tagline {
+  margin: 0;
+  color: #da291c;
+  font-family: 'Lemonada', cursive;
+  font-weight: 380;
+  font-size: 58.37px;
+  line-height: 75.88px;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 20px;
+  }
+
+  .logo-image {
+    width: 400px; /* Hacemos la imagen más pequeña */
+  }
+
+  .logo-tagline {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 550px) {
+  .auth-nav {
+    font-size: 16px;
+    gap: 8px;
+  }
+  
+  .logo-image {
+    width: 300px; /* Aún más pequeña */
+  }
+
+  .logo-tagline {
+    font-size: 36px;
+    line-height: 1.3;
+  }
+}

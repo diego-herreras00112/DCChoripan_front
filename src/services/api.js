@@ -1,0 +1,135 @@
+import axios from 'axios';
+
+const apiClient = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+
+// --- Interceptor para añadir Token automáticamente ---
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) config.headers['Authorization'] = `Bearer ${token}`;
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+
+// ===========================
+// 🔐 LOGIN (AQUÍ ESTÁ EL ARREGLO)
+// ===========================
+export const login = async (email, password) => {
+  try {
+    const response = await apiClient.post('/auth/login', {
+      email,
+      password,
+    });
+
+    const data = response.data;
+
+    // ⭐⭐⭐ SOLUCIÓN ⭐⭐⭐
+    // Normalizamos token → access_token
+    if (data.token && !data.access_token) {
+      data.access_token = data.token;
+    }
+
+    return data;
+
+  } catch (error) {
+    console.error('Error en el login:', error.response?.data?.error || error.message);
+    throw new Error(error.response?.data?.error || 'Error al iniciar sesión');
+  }
+};
+
+
+// ======================================
+// (Resto de tu archivo SIN CAMBIOS)
+// ======================================
+
+export const signup = async (nombre_usuario, email, password) => {
+  try {
+    const response = await apiClient.post('/auth/signup', {
+      nombre_usuario,
+      email,
+      password,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error en el registro:', error.response?.data?.error || error.message);
+    throw new Error(error.response?.data?.error || 'Error al registrarse');
+  }
+};
+
+export const logout = async () => {
+  try {
+    const response = await apiClient.post('/auth/logout');
+    return response.data;
+  } catch (error) {
+    console.error('Error en el logout:', error.response?.data?.error || error.message);
+    throw new Error(error.response?.data?.error || 'Error al cerrar sesión');
+  }
+};
+
+export const getUsuarios = async () => {
+  try {
+    const response = await apiClient.get('/usuarios');
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener usuarios:', error.response?.data?.error || error.message);
+    throw new Error(error.response?.data?.error || 'No se pudo cargar los usuarios');
+  }
+};
+
+export const deleteUsuario = async (id) => {
+  try {
+    const response = await apiClient.delete(`/usuarios/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error al eliminar usuario:', error.response?.data?.error || error.message);
+    throw new Error(error.response?.data?.error || 'No se pudo eliminar el usuario');
+  }
+};
+
+export const createGame = async () => {
+  try {
+    const response = await apiClient.post('/partidas');
+    return response.data;
+  } catch (error) {
+    console.error('Error al crear partida:', error.response?.data?.details || error.message);
+    throw new Error(error.response?.data?.details || 'No se pudo crear la partida');
+  }
+};
+
+export const joinGameByCode = async (codigo) => {
+  try {
+    const response = await apiClient.post(`/partidas/${codigo}/join`);
+    return response.data;
+  } catch (error) {
+    console.error('Error al unirse a partida:', error.response?.data?.details || error.message);
+    throw new Error(error.response?.data?.details || 'No se pudo unir a la partida');
+  }
+};
+
+export const leaveGame = async () => {
+  try {
+    const response = await apiClient.delete('/partidas/leave');
+    return response.data;
+  } catch (error) {
+    console.error('Error al salir de partida:', error.response?.data?.details || error.message);
+    throw new Error(error.response?.data?.details || 'No se pudo salir de la partida');
+  }
+};
+
+export const getGameState = async (partidaId) => {
+  try {
+    const response = await apiClient.get(`/partidas/${partidaId}`);
+    return response.data;
+  } catch (error){
+    console.error('Error al obtener estado de partida:', error.response?.data?.error || error.message);
+    throw new Error(error.response?.data?.error || 'No se pudo cargar la partida');
+  }
+};

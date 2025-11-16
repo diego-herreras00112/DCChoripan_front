@@ -1,0 +1,64 @@
+/*
+  Define los colores y fuentes para toda la aplicación
+*/
+:root {
+  --background-light: #ffffff;
+  --background-dark: #000000;
+  --text-primary: #c1e0ff;
+  --text-secondary: #ffdd92;
+  --text-accent: #da291c;
+  --text-light: #ffffff;
+
+  --font-lemon: 'Lemon', serif;
+  --font-lemonada: 'Lemonada', cursive;
+  --font-josefin: 'Josefin Sans', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*
+  ¡AQUÍ ESTÁ EL ARREGLO!
+  Fondo negro para todo el body.
+*/
+body {
+  margin: 0;
+  font-family: var(--font-roboto);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/*
+  Clase 'container' reutilizable
+*/
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 42px;
+  padding-right: 42px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

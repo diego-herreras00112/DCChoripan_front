@@ -1,0 +1,36 @@
+[1mdiff --git a/src/views/NosotrosPage.jsx b/src/views/NosotrosPage.jsx[m
+[1mindex 7a3f9af..0b5550d 100644[m
+[1m--- a/src/views/NosotrosPage.jsx[m
+[1m+++ b/src/views/NosotrosPage.jsx[m
+[36m@@ -7,22 +7,19 @@[m [mconst TEAM = [[m
+   {[m
+     nombre: "Ignacia Nuyens",[m
+     rol: "Industrial · Tecnologías de la Información",[m
+[31m-    foto: "/Ignacia.jpg",     // pon tus fotos en /public/imgs/[m
+[31m-    bio: "blabla.",[m
+[32m+[m[32m    foto: "/Ignacia.jpg",[m[41m  [m
+     github: "https://github.com/ignanuyens",[m
+   },[m
+   {[m
+     nombre: "Diego Herrera",[m
+     rol: "Industrial · Tecnologías de la Información",[m
+     foto: "/Diego.jpg",[m
+[31m-    bio: "bla bla",[m
+     github: "https://github.com/diego-herreras00112",[m
+   },[m
+   {[m
+     nombre: "Laura Melo",[m
+     rol: "Ingeniería, Diseño e Innovación · Industrial",[m
+     foto: "/Laura.jpeg",[m
+[31m-    bio: "bla bla.",[m
+     github: "https://github.com/lauramelotrucco",[m
+   },[m
+ ];[m
+[36m@@ -34,7 +31,6 @@[m [mfunction Card({ m }) {[m
+       <img className="avatar" src={m.foto} alt={`Foto de ${m.nombre}`} onError={onImgError} />[m
+       <h3 className="name">{m.nombre}</h3>[m
+       <p className="role">{m.rol}</p>[m
+[31m-      <p className="bio">{m.bio}</p>[m
+       <div className="links">[m
+         {m.github && ([m
+           <a href={m.github} target="_blank" rel="noreferrer">GitHub</a>[m
