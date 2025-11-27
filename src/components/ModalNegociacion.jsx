@@ -63,7 +63,7 @@ export default function ModalNegociacion({
     setError(null);
 
     try {
-      const res = await fetch(`http://localhost:3000/jugadores/${partidaId}/negociar/oferta`, {
+      const res = await fetch(`https://dcchoripan-api.onrender.com/jugadores/${partidaId}/negociar/oferta`, {
         method: "POST",
         headers: getAuthHeader(),
         body: JSON.stringify({
@@ -93,7 +93,7 @@ export default function ModalNegociacion({
 
     try {
       const endpoint = aceptar ? "aceptar" : "rechazar";
-      const res = await fetch(`http://localhost:3000/jugadores/${partidaId}/negociar/${endpoint}`, {
+      const res = await fetch(`https://dcchoripan-api.onrender.com/jugadores/${partidaId}/negociar/${endpoint}`, {
         method: "POST",
         headers: getAuthHeader(),
         body: JSON.stringify({

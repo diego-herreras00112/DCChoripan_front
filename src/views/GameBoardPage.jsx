@@ -58,14 +58,14 @@ export default function GameBoardPage() {
   // ===========================================================
   
   const cargarJugadores = useCallback(() => {
-    fetch(`http://localhost:3000/jugadores/${partidaId}`)
+    fetch(`https://dcchoripan-api.onrender.com/jugadores/${partidaId}`)
       .then((res) => res.json())
       .then((data) => setJugadores(data.jugadores || []))
       .catch((err) => console.error("Fetch jugadores:", err));
   }, [partidaId]);
 
   const cargarTurnoActual = useCallback(() => {
-    fetch(`http://localhost:3000/turnos/${partidaId}/turno-actual`)
+    fetch(`https://dcchoripan-api.onrender.com/turnos/${partidaId}/turno-actual`)
       .then((res) => res.json())
       .then((data) => setTurnoActual(data?.jugador || null))
       .catch((err) => console.error("Error turno-actual:", err));
@@ -73,7 +73,7 @@ export default function GameBoardPage() {
 
   const cargarRanking = useCallback(async () => {
     try {
-      const res = await fetch(`http://localhost:3000/partidas/${partidaId}/ranking`, {
+      const res = await fetch(`https://dcchoripan-api.onrender.com/partidas/${partidaId}/ranking`, {
         headers: getAuthHeader()
       });
       if (res.status === 409) return; 
@@ -295,7 +295,7 @@ const handleOfertaRecibida = (data) => {
 
     setTirando(true);
     try {
-      const res = await fetch(`http://localhost:3000/turnos/${partidaId}/roll`, {
+      const res = await fetch(`https://dcchoripan-api.onrender.com/turnos/${partidaId}/roll`, {
         method: "POST",
         headers: getAuthHeader(),
       });
@@ -341,7 +341,7 @@ const handleOfertaRecibida = (data) => {
   const manejarTerminarTurno = async () => {
     if (partidaFinalizada) return;
     try {
-      await fetch(`http://localhost:3000/turnos/${partidaId}/siguiente`, {
+      await fetch(`https://dcchoripan-api.onrender.com/turnos/${partidaId}/siguiente`, {
         method: "POST",
         headers: getAuthHeader(),
       });
@@ -382,9 +382,9 @@ const handleOfertaRecibida = (data) => {
     try {
       let url = "";
       if (tipoAccion === "EVOLUCION") {
-        url = `http://localhost:3000/jugadores/${partidaId}/${jugadorActual.id}/evolucionar`;
+        url = `https://dcchoripan-api.onrender.com/jugadores/${partidaId}/${jugadorActual.id}/evolucionar`;
       } else if (tipoAccion === "ESCALERA") {
-        url = `http://localhost:3000/jugadores/${partidaId}/${jugadorActual.id}/construir-escalera`;
+        url = `https://dcchoripan-api.onrender.com/jugadores/${partidaId}/${jugadorActual.id}/construir-escalera`;
       }
 
       const res = await fetch(url, { method: "POST", headers: getAuthHeader() });
