@@ -549,6 +549,7 @@ const handleOfertaRecibida = (data) => {
             {(jugadorActual.congelado_hasta > 0) && <span style={{fontSize:'24px', marginRight:'5px'}}>❄️</span>}
             <img src={`/iconos/${jugadorActual.rol}.svg`} alt="Rol" className="icono-rol" />
             <span className="nivel">Nivel {jugadorActual.nivel}</span>
+            <button className="boton-ayuda-mini" onClick={() => setMostrarLeyenda(true)}>?</button>
           </div>
           <div className="info-jugador-inferior" style={{ backgroundColor: rolColor(jugadorActual.rol) + rolOpacidad(jugadorActual.rol), color: rolColorText(jugadorActual.rol) }}>
             <div className="inventario-item"><span>{jugadorActual.inventario.madera || 0}</span><img src="/inventario/madera.svg" alt="" /></div>
@@ -623,14 +624,7 @@ const handleOfertaRecibida = (data) => {
 
         </div>
       )}
-          <div className="ayuda-fixed">
-            <button
-              className="boton-accion-derecha boton-ayuda"
-              onClick={() => setMostrarLeyenda(true)}
-            >
-              ?
-            </button>
-          </div>
+
 
       {jugadorActual && (
         <button
