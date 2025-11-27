@@ -1,0 +1,371 @@
+/* ===========================
+   MODAL NEGOCIACIÓN
+   =========================== */
+
+.overlay-negociacion {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2500;
+}
+
+.modal-negociacion {
+  position: relative;
+  background: #000000;
+  border-radius: 18px;
+  border: 4px solid #ffffff;
+  padding: 2.5rem 2rem 2rem;
+  max-width: 800px;
+  width: 90%;
+  color: #ffffff;
+  text-align: center;
+}
+
+.modal-negociacion-cerrar {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.modal-negociacion-cerrar:hover {
+  color: #ff6b6b;
+}
+
+.modal-negociacion-titulo {
+  font-family: "Lemon", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icono-rol-negociacion {
+  width: 40px;
+  height: 40px;
+}
+
+/* ===========================
+   CONTENEDOR DE INTERCAMBIO
+   =========================== */
+
+.contenedor-intercambio {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.rectangulo-oferta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  min-width: 280px;
+}
+
+.rectangulo-izquierdo {
+  border-radius: 13.33px 0 0 13.33px;
+  border: 4px solid #ffffff;
+  border-right: 2px solid #ffffff;
+}
+
+.rectangulo-derecho {
+  border-radius: 0 13.33px 13.33px 0;
+  border: 4px solid #ffffff;
+  border-left: 2px solid #ffffff;
+}
+
+.label-intercambio {
+  font-family: "Lemon", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.recursos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: fit-content;
+  margin: 0 auto; 
+}
+
+/* ===========================
+   CONTROL DE RECURSOS
+   =========================== */
+
+.recurso-control {
+ display: grid;
+  grid-template-columns: 70px auto 60px;
+  align-items: center;
+  column-gap: 1rem; 
+  width: fit-content;
+  margin: 0 auto;  
+}
+
+.controles-cantidad {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  row-gap: 4px;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.controles-cantidad .cantidad-recurso {
+  grid-column: 1;
+  grid-row: 1 / span 2; /* ocupa dos filas */
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.controles-cantidad .boton-flecha:first-child {
+  grid-column: 2;
+  grid-row: 1; /* flecha arriba */
+}
+
+.controles-cantidad .boton-flecha:last-child {
+  grid-column: 2;
+  grid-row: 2; /* flecha abajo */
+}
+
+
+.boton-flecha {
+  background: #0032a0;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lemon", sans-serif;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.boton-flecha:hover {
+  transform: scale(1.1);
+  background: #0052d0;
+}
+
+.boton-flecha:active {
+  transform: scale(0.95);
+}
+
+.cantidad-recurso {
+  font-family: "Lemon", sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  min-width: 40px;
+  text-align: center;
+}
+
+.icono-recurso {
+  width: 50px;
+  height: 50px;
+  justify-self: center;
+}
+
+
+
+/* ===========================
+   DISPLAY DE RECURSOS (solo vista)
+   =========================== */
+
+.recurso-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* ===========================
+   SELECCIÓN DE JUGADOR
+   =========================== */
+
+.seleccion-jugador {
+  background: rgba(255, 255, 255, 0.1);
+  border: 4px solid #ffffff;
+  border-radius: 13.33px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.label-seleccion {
+  font-family: "Lemon", sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.iconos-jugadores {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.icono-jugador-seleccionable {
+  width: 60px;
+  height: 60px;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.2s;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.icono-jugador-seleccionable:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.icono-jugador-seleccionable.seleccionado {
+  opacity: 1;
+  border-color: #ffffff;
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* ===========================
+   BOTONES ACCIÓN
+   =========================== */
+
+.boton-negociar-enviar {
+  border-radius: 30px;
+  border: 2px solid #ffffff;
+  background: #0032a0;
+  color: #ffffff;
+  padding: 12px 40px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Lemon", sans-serif;
+  font-size: 1.1rem;
+  transition: transform 0.2s, background 0.2s;
+  margin-top: 1rem;
+}
+
+.boton-negociar-enviar:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: #0052d0;
+}
+
+.boton-negociar-enviar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===========================
+   BOTONES RESPUESTA (Aceptar/Rechazar)
+   =========================== */
+
+.botones-respuesta {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.boton-respuesta {
+  border-radius: 30px;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  padding: 12px 35px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Lemon", sans-serif;
+  font-size: 1rem;
+  transition: transform 0.2s, opacity 0.2s;
+  min-width: 140px;
+}
+
+.boton-aceptar {
+  background: #0032a0;
+}
+
+.boton-aceptar:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: #0052d0;
+}
+
+.boton-rechazar {
+  background: #AE2116;
+}
+
+.boton-rechazar:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: #d42818;
+}
+
+.boton-respuesta:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===========================
+   MENSAJES DE ERROR/CARGA
+   =========================== */
+
+.modal-negociacion-error {
+  color: #ff6b6b;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  font-family: "Lemon", sans-serif;
+}
+
+.modal-negociacion-loading {
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-top: 1rem;
+  font-family: "Lemon", sans-serif;
+}
+
+/* ===========================
+   NOTIFICACIÓN FLOTANTE
+   =========================== */
+
+.notificacion-flotante {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  padding: 15px 30px;
+  border-radius: 12px;
+  border: 2px solid #ffffff;
+  font-family: "Lemon", sans-serif;
+  font-size: 1rem;
+  z-index: 5000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

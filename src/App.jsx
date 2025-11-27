@@ -18,7 +18,7 @@ import WaitingRoomPage from './views/WaitingRoomPage.jsx';
 import NosotrosPage from './views/NosotrosPage.jsx'; // <-- importa la nueva página
 import RoleRevealPage from './views/RoleRevealPage.jsx';
 import GameBoardPage from './views/GameBoardPage.jsx';
-
+import GameHistoryPage from './views/GameHistoryPage.jsx';
 // --- Dummy components por ahora ---
 
 
@@ -55,6 +55,8 @@ function App() {
         <Route path="/partida/:partidaId/espera" element={<WaitingRoomPage />} />
         <Route path="/partida/:partidaId/roles" element={<RoleRevealPage />} />
         {/* <Route path="/partida/:partidaId/jugar" element={<GameBoardPage />} /> */}
+
+        <Route path="/partidas/historial" element={<GameHistoryPage />} />
 
       </Routes>
     </div>
