@@ -623,7 +623,7 @@ const handleOfertaRecibida = (data) => {
 
         </div>
       )}
-        <div className="acciones-derecha">
+          <div className="ayuda-fixed">
             <button
               className="boton-accion-derecha boton-ayuda"
               onClick={() => setMostrarLeyenda(true)}

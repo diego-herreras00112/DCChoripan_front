@@ -431,3 +431,9 @@
   font-size: 1.4rem;
   cursor: pointer;
 }
+.ayuda-fixed {
+  position: fixed;
+  right: 40px;
+  bottom: 240px;
+  z-index: 950;
+}
