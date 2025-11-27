@@ -65,11 +65,19 @@ export default function GameBoardPage() {
   }, [partidaId]);
 
   const cargarTurnoActual = useCallback(() => {
-    fetch(`https://dcchoripan-api.onrender.com/turnos/${partidaId}/turno-actual`)
-      .then((res) => res.json())
-      .then((data) => setTurnoActual(data?.jugador || null))
-      .catch((err) => console.error("Error turno-actual:", err));
-  }, [partidaId]);
+      fetch(`https://dcchoripan-api.onrender.com/turnos/${partidaId}/turno-actual`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("🔍 Datos recibidos del turno:", data); // <-- Esto te ayudará a ver qué llega
+          
+          // CORRECCIÓN: A veces llega data.jugador, a veces llega data directo.
+          // Esto asegura que tomemos el correcto.
+          const turno = data?.jugador || data; 
+          
+          setTurnoActual(turno);
+        })
+        .catch((err) => console.error("Error turno-actual:", err));
+    }, [partidaId]);
 
   const cargarRanking = useCallback(async () => {
     try {
